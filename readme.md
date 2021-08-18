@@ -31,8 +31,11 @@ pipelines:
     - step:
         name: Reviewdog-textlint
         image: cslroot/sphinx-textlint-reviewdog-bitbucket
+        cahces:
+          - node
+          - pip
         script:
-          - npm ci
+          - npm install
           - pip sync
           - /sphinx-textlint-reviewdog-bitbucket.sh .
 ```
@@ -42,8 +45,6 @@ pipelines:
 - golang:latest
 - nodejs 16.x
 - reviewdog
-- textlint
-- sphinx / sphinx-intl / rtd theme
 
 
 # memo
